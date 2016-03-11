@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
 
   def one_by_kind(obj, kind)
     obj.where(:kind => kind).first || obj.where(:kind => kind).build
-    #obj.where(:kind => kind).build
   end
   helper_method :one_by_kind
 
