@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311102024) do
+ActiveRecord::Schema.define(version: 20160311132502) do
 
   create_table "profiles", force: :cascade do |t|
     t.string   "first_name"
@@ -23,11 +23,14 @@ ActiveRecord::Schema.define(version: 20160311102024) do
   create_table "socials", force: :cascade do |t|
     t.string   "kind"
     t.string   "username"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "profiles_id"
+    t.integer  "sociable_id"
+    t.string   "sociable_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
-  add_index "socials", ["profiles_id"], name: "index_socials_on_profiles_id"
+  add_index "socials", ["kind"], name: "index_socials_on_kind"
+  add_index "socials", ["sociable_type", "sociable_id"], name: "index_socials_on_sociable_type_and_sociable_id"
+  add_index "socials", ["username"], name: "index_socials_on_username"
 
 end
