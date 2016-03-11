@@ -1,2 +1,16 @@
 <h3>New profile</h3>
-<%= render "form" %>
+<%# render partial: "form" %>
+
+<%= form_for(@profile) do |f| %>
+
+  <%= f.text_field :first_name %><br>
+  <%= f.text_field :last_name %><br>
+
+  <% @social_list.each do |label, entry| %>
+    <%# byebug %>
+    <%= f.fields_for :socials, one_by_kind(@profile.socials, @profile.socials.kinds[entry]) do |a| %>
+      <%= a.hidden_field :kind, {value: entry} %><%= label %>: <%= a.text_field :username %>
+    <% end %>
+  <% end %>
+
+<% end %>
