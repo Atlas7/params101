@@ -56,5 +56,5 @@ parameter = {
 @profile.Profile.last
 @profile.socials.kinds
 @profile.socials.all.where(kind: 2) # => gives you the user facebook account
-@profile.socials.all.where(kind: :facebook) # => gives you nothing. Why?
+@profile.socials.all.where(kind: :facebook) # => gives you nothing. Why? (Apparently only works in Rails 5.x or above)
 ```
