@@ -1,0 +1,16 @@
+parameter = {
+  "profile": {
+    "first_name": "John",
+    "last_name": "Smith",
+    "socials_attributes": {
+      "3": {
+        "kind": "linked_in",
+        "username": "js123li"
+      },
+      "2": {
+        "kind": "facebook",
+        "username": "js123fb"
+      } 
+    } 
+  }
+}

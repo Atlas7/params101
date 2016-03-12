@@ -1,7 +1,7 @@
 class CreateSocials < ActiveRecord::Migration
   def change
     create_table :socials do |t|
-      t.string :kind
+      t.integer :kind, null: false
       t.string :username
       t.references :sociable, polymorphic: true, index: true
 

@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20160311132502) do
   end
 
   create_table "socials", force: :cascade do |t|
-    t.string   "kind"
+    t.integer  "kind",          null: false
     t.string   "username"
     t.integer  "sociable_id"
     t.string   "sociable_type"

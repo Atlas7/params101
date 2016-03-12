@@ -5,13 +5,11 @@
     <%= f.label :last_name %><%= f.text_field :last_name %><br>
   </div>
 
-  <div>
-    <% @social_list.each do |label, entry| %>
-      <%# byebug %>
-      <%= f.fields_for :socials, one_by_kind(@profile.socials, @profile.socials.kinds[entry]) do |a| %>
-        <%= a.hidden_field :kind, {value: entry} %><%= label %>: <%= a.text_field :username %>
-      <% end %>
+  <% @social_list.each do |label, entry| %>
+    <%# byebug %>
+    <%= f.fields_for :socials, one_by_kind(@profile.socials, @profile.socials.kinds[entry]) do |a| %>
+      <%= a.hidden_field :kind, {value: entry} %><%= label %>: <%= a.text_field :username %>
     <% end %>
-  </div>
+  <% end %>
 
 <% end %>
