@@ -26,6 +26,35 @@ Start a local rails server:
 rails s
 ```
 
-Go to [http://localhost:3000/profiles/new](http://localhost:3000/profiles/new).
+# Play in Console
 
-Notice the error - is there a bug somewhere?
+Try these in console
+
+```
+parameter = {
+  "profile": {
+    "first_name": "John",
+    "last_name": "Smith",
+    "socials_attributes": {
+      "3": {
+        "kind": "linked_in",
+        "username": "js123li"
+      },
+      "2": {
+        "kind": "facebook",
+        "username": "js123fb"
+      } 
+    } 
+  }
+}
+
+@profile = Profile.new
+@profile.first_name = parameter[:profile][:first_name]
+@profile.last_name = parameter[:profile][:last_name]
+@profile.socials_attributes = parameter[:profile][:socials_attributes]
+@profile.save
+@profile.Profile.last
+@profile.socials.kinds
+@profile.socials.all.where(kind: 2) # => gives you the user facebook account
+@profile.socials.all.where(kind: :facebook) # => gives you nothing. Why?
+```
